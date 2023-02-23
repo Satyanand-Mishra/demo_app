@@ -1,14 +1,16 @@
-
 name: Python application
 on:
   push:
     branches:
       - main
 jobs:
-  deploy-lambda:
+  test:
     runs-on: ubuntu-latest
+    env:
+      OUTPUT_SUFFIX: MySuffix
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Use environment variables from entire job
-        run: echo ${{secrets.AWS_ACCESS_KEY_ID}}
-      
+        run: echo We display the $OUTPUT_SUFFIX define for the entire job1
+
+      - name: Use environment variables from entire job
+        run: echo We reuse the output suffix $OUTPUT_SUFFIX multiples time in the entire job1
