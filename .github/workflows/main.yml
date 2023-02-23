@@ -7,16 +7,8 @@ on:
 jobs:
   deploy-lambda:
     runs-on: ubuntu-latest
-    env:
-      OUTPUT_SUFFIX: MySuffix
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-
       - name: Use environment variables from entire job
-        run: echo ${{secrets.aws-access-key-id}}
+        run: echo ${{secrets.AWS_ACCESS_KEY_ID}}
       
